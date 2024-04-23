@@ -15,12 +15,6 @@ public class App {
 
         int result = 0; // 초기화
 
-        /*
-        if (firstnum <= 0 || secondnum <= 0){
-            System.out.println("양의 정수를 입력해주세요.");
-        }
-        */
-
         System.out.println("사칙연산 기호를 입력하세요: ");
         char operator = sc.nextLine().charAt(0);
 
