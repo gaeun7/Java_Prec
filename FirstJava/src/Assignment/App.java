@@ -6,34 +6,37 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("첫 번째 숫자를 입력하세요: ");
-        int firstnum = sc.nextInt();
+        int firstnum = sc.nextInt(); //첫 번째 숫자
         System.out.println("두 번째 숫자를 입력하세요:  ");
-        int secondnum = sc.nextInt();
+        int secondnum = sc.nextInt(); // 두 번째 숫자
+
+        sc.nextLine(); // 개행 문자 소비
+
+        int result = 0; // 초기화
+
+        /*
         if (firstnum <= 0 || secondnum <= 0){
             System.out.println("양의 정수를 입력해주세요.");
         }
-
-        sc.nextLine();
+        */
 
         System.out.println("사칙연산 기호를 입력하세요: ");
         char operator = sc.nextLine().charAt(0);
 
-        int result = 0;
-
         switch (operator){
-            case '+':
+            case '+': // 덧셈 연산
                 result = firstnum + secondnum;
                 System.out.println("결과: " + result);
                 break;
-            case '-':
+            case '-': // 뺄셈 연ㄴ산
                 result = firstnum - secondnum;
                 System.out.println("결과: " + result);
                 break;
-            case '*':
+            case '*': // 곱셈 연산
                 result = firstnum * secondnum;
                 System.out.println("결과: " + result);
                 break;
-            case '/':
+            case '/': // 나눗셈 연산
                 if (secondnum > 0) {
                     result = firstnum / secondnum;
                     System.out.println("결과: " + result);
