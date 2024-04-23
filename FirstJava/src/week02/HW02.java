@@ -27,7 +27,7 @@ public class HW02 {
                 ArrayList<String> strList = new ArrayList<>();
                 while(true){
                     String text = sc.nextLine();
-                    if (Objects.equals(text,"끝") ) {
+                    if (Objects.equals(text,"끝") ) { // Objects.equals
                         break;
                     }
                     strList.add(text);
@@ -53,7 +53,7 @@ public class HW02 {
                 System.out.println(title);
                 for (int i=0; i < strMap.size(); i++){
                     int num = i + 1;
-                    System.out.println(num + "." + strMap.get(i+1));
+                    System.out.println(num + "." + strMap.get(i+1));  // 왜 +1을 하는지
                 }
                 break;
             case "Set":
@@ -67,7 +67,7 @@ public class HW02 {
                 }
                 title = "[Set으로 저장된" + title + "]";
                 System.out.println(title);
-                Iterator iterator = strSet.iterator();
+                Iterator iterator = strSet.iterator();  // Iterator이 정확하게 무엇인지
                 for (int i=0; i < strSet.size(); i++){
                     int num = i + 1;
                     System.out.println(num + "." + iterator.next());
