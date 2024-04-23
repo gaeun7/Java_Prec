@@ -15,7 +15,7 @@ public class App {
         System.out.println("사칙연산 기호를 입력하세요: ");
         char operator = sc.nextLine().charAt(0);
 
-        System.out.println("첫 번째 숫자: " + firstnum + "두 번째 숫자: " + secondnum + "연산기호: " + operator); // 입력 받은 변수가 잘 저장 되었는지 확인
+        System.out.println("첫 번째 숫자: " + firstnum + "두 번째 숫자: " + secondnum + "연산기호: " + operator); // 입력 받은 값이 변수에 잘 저장 되었는지 확인
 
     }
 }
