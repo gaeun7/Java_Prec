@@ -1,4 +1,4 @@
-package week02;
+package week02.Array;
 
 public class ArrayString {
     public static void main(String[] args) {

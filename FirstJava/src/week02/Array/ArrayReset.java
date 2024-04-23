@@ -1,4 +1,4 @@
-package week02;
+package week02.Array;
 
 import java.util.Arrays;
 public class ArrayReset {
