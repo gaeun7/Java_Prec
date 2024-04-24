@@ -23,7 +23,7 @@ public class App {
                 result = firstnum + secondnum;
                 System.out.println("결과: " + result);
                 break;
-            case '-': // 뺄셈 연ㄴ산
+            case '-': // 뺄셈 연산
                 result = firstnum - secondnum;
                 System.out.println("결과: " + result);
                 break;

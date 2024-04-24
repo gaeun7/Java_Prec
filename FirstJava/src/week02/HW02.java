@@ -27,7 +27,7 @@ public class HW02 {
                 ArrayList<String> strList = new ArrayList<>();
                 while(true){
                     String text = sc.nextLine();
-                    if (Objects.equals(text,"끝") ) { // Objects.equals
+                    if (text.equals("끝") ) { //Objects.equals(text,"끝")
                         break;
                     }
                     strList.add(text);
@@ -44,7 +44,7 @@ public class HW02 {
                 int lineNum = 1;
                 while(true){
                     String text = sc.nextLine();
-                    if (Objects.equals(text,"끝") ) {
+                    if (text.equals("끝") ) { //Objects.equals(text,"끝")
                         break;
                     }
                     strMap.put(lineNum++, text);
@@ -60,7 +60,7 @@ public class HW02 {
                 LinkedHashSet<String> strSet = new LinkedHashSet<>();
                 while(true){
                     String text = sc.nextLine();
-                    if (Objects.equals(text,"끝") ) {
+                    if (text.equals("끝") ) {//Objects.equals(text,"끝")
                         break;
                     }
                     strSet.add(text);
