@@ -61,7 +61,7 @@ public class App {
 
             if (reply.equals("inquiry")) {
                 for (int num : intArray) {
-                    System.out.println(intArray);
+                    System.out.println(num);
                 }
             }
 
