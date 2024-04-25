@@ -48,13 +48,18 @@ public class App {
             }
             /*ArrayList에 연산 결과 저장할 수 있도록 구현*/
             intArray.add(result);
-            System.out.println(intArray); //ArrayList에 잘 저장이 되었는지 확인
 
-            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (yes 입력 시 삭제)");
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             /*“remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현*/
             String answer = sc.nextLine();
-            if (answer.equals("yes")) {
+            if (answer.equals("remove")) {
                 intArray.remove(0);
+            }
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String reply = sc.nextLine();
+            if (reply.equals("inquiry")){
+                System.out.println(intArray); //ArrayList에 잘 저장이 되었는지 확인
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
