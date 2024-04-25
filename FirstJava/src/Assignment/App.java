@@ -1,4 +1,5 @@
 package Assignment;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
@@ -49,8 +50,10 @@ public class App {
             
             if (count < 10) {  //10번 이하의 연산 결과값일 때
                 intArray[count++] = result;
-            } else { //배열 크기를 초과한 경우
-                System.out.println("더 이상 결과를 저장할 수 없습니다.");
+            } else if (count >= 10) { //배열 크기를 초과한 경우
+              intArray[0] = Integer.parseInt(null);       //0번째 인덱스 값을 없앰
+              int[] copyOfInt = Arrays.copyOf(intArray, intArray.length - 1);  //배열 값 재배치
+              intArray[count++] = result;  // 새로운 값 마지막 인덱스에 배치,,,
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
