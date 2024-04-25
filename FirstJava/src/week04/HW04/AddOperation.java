@@ -1,6 +1,6 @@
-package week03.HW03;
+package week04.HW04;
 
-public class AddOperation extends AbstractOperation{
+public class AddOperation extends AbstractOperation {
     @Override
     public double operate(int firstNumber, int secondNumber) {
         return firstNumber + secondNumber;
