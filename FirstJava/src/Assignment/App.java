@@ -58,8 +58,11 @@ public class App {
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             String reply = sc.nextLine();
-            if (reply.equals("inquiry")){
-                System.out.println(intArray); //ArrayList에 잘 저장이 되었는지 확인
+
+            if (reply.equals("inquiry")) {
+                for (int num : intArray) {
+                    System.out.println(intArray);
+                }
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
