@@ -12,7 +12,12 @@ class CalculatorException extends Exception {
 
 public class Calculator {
     /* 연산 결과를 저장하는 컬렉션 타입 필드를 외부에서 직접 접근 하지 못하도록 수정*/
-    private List<Double> results = new ArrayList<>();
+    private List<Double> results;
+
+    // Calculator 클래스의 생성자
+    public Calculator(List<Double> initialResults) {
+        this.results = new ArrayList<>(initialResults);
+    }
 
     // 산술 연산을 수행하고 결과 값을 반환하는 메서드
     public double calculate(double num1, double num2, char operator) throws CalculatorException {
@@ -20,25 +25,19 @@ public class Calculator {
 
         // 연산자 기호에 따라 산술 연산 수행
         switch (operator) {
-            case '+':
-                result = num1 + num2;
-                break;
-            case '-':
-                result = num1 - num2;
-                break;
-            case '*':
-                result = num1 * num2;
-                break;
-            case '/':
+            case '+' -> result = num1 + num2;
+            case '-' -> result = num1 - num2;
+            case '*' -> result = num1 * num2;
+            case '/' -> {
                 // 0으로 나누기 확인
                 if (num2 == 0) {
                     throw new CalculatorException("0으로 나눌 수 없습니다.");
                 }
                 result = num1 / num2;
-                break;
-            default:
+            }
+            default ->
                 // 잘못된 연산자 기호에 대한 예외 처리
-                throw new CalculatorException("잘못된 연산자 기호입니다.");
+                    throw new CalculatorException("잘못된 연산자 기호입니다.");
         }
         // 연산 결과를 컬렉션 필드에 저장
         results.add(result);
@@ -53,7 +52,7 @@ public class Calculator {
     // 연산 결과 리스트에서 첫 번째 데이터를 삭제하는 메서드
     public void deleteFirstResult() {
         if (!results.isEmpty()) {
-            results.remove(0);
+            results.removeFirst();
         }
     }
 

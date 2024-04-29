@@ -1,15 +1,29 @@
 package Assignment.Level2;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        /* Calculator 인스턴스 생성 */
-        Calculator calculator = new Calculator();
+        // 초기 결과 값으로 사용할 리스트 생성
+        List<Double> initialResults = Arrays.asList(0.0, 0.0); // 예시로 0.0으로 초기화
+
+        // Calculator 인스턴스 생성 시 초기 결과 값 리스트 전달
+        Calculator calculator = new Calculator(initialResults);
+
         Scanner sc = new Scanner(System.in);
 
-        /* 루프 시작 */
+ /*       // Calculator 인스턴스에서 계산 결과 검색
+        List<Double> calculationResults = calculator.getResults();
+
+        // 초기화 확인
+        if (initialResults.equals(calculationResults)) {
+            System.out.println("Calculator 인스턴스가 초기 결과로 성공적으로 생성되었습니다.");
+        } else {
+            System.out.println("오류: Calculator 인스턴스가 초기 결과로 올바르게 초기화되지 않았습니다.");
+        }
+*/
+         //루프 시작
         while (true) {
             System.out.println("첫 번째 숫자를 입력하세요: ");
             double firstNum = sc.nextDouble(); // 보다 정확한 계산을 위해 int 대신 double 사용
@@ -55,7 +69,7 @@ public class App {
             if (text.equals("exit")) {
                 break;
             }
-        } /* 루프 종료 */
+        }  //루프 종료
         sc.close(); // 사용이 끝난 스캐너 닫기
     }
 }
