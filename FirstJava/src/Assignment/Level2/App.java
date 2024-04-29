@@ -1,5 +1,6 @@
 package Assignment.Level2;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -30,12 +31,17 @@ public class App {
             // 개행 문자 소비
             sc.nextLine();
 
+            System.out.println("저장된 결과를 조회하시겠습니까? (삭제하려면 'yes'를 입력하세요)");
+            String inquiryOption = sc.nextLine();
+            if (inquiryOption.equals("yes")) {
+                // 조회된 결과 출력
+                List<Double> results = calculator.inquiryResults();
+                System.out.println("저장된 결과: " + results);
+            }
+
             System.out.println("첫 번째 저장된 데이터를 삭제하시겠습니까? (삭제하려면 'yes'를 입력하세요)");
             String deleteOption = sc.nextLine();
             if (deleteOption.equals("yes")) {
-                // 연산 결과 중 첫 번째 저장된 데이터 삭제 전에 저장된 결과 출력
-                System.out.println("삭제 전 저장된 값: " + calculator.getResults());
-
                 // 연산 결과 중 첫 번째 저장된 데이터 삭제
                 calculator.deleteFirstResult();
                 System.out.println("첫 번째 저장된 데이터가 삭제되었습니다.");
