@@ -1,75 +1,73 @@
 package Assignment.Level2;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        // 초기 결과 값으로 사용할 리스트 생성
-        List<Double> initialResults = Arrays.asList(0.0, 0.0); // 예시로 0.0으로 초기화
-
-        // Calculator 인스턴스 생성 시 초기 결과 값 리스트 전달
+        List<Double> initialResults = Arrays.asList(0.0, 0.0);
         Calculator calculator = new Calculator(initialResults);
-
         Scanner sc = new Scanner(System.in);
 
- /*       // Calculator 인스턴스에서 계산 결과 검색
-        List<Double> calculationResults = calculator.getResults();
-
-        // 초기화 확인
-        if (initialResults.equals(calculationResults)) {
-            System.out.println("Calculator 인스턴스가 초기 결과로 성공적으로 생성되었습니다.");
-        } else {
-            System.out.println("오류: Calculator 인스턴스가 초기 결과로 올바르게 초기화되지 않았습니다.");
-        }
-*/
-         //루프 시작
         while (true) {
-            System.out.println("첫 번째 숫자를 입력하세요: ");
-            double firstNum = sc.nextDouble(); // 보다 정확한 계산을 위해 int 대신 double 사용
-            System.out.println("두 번째 숫자를 입력하세요: ");
-            double secondNum = sc.nextDouble();
+            System.out.println("작업을 선택하세요: ");
+            System.out.println("1. 산술 연산 수행");
+            System.out.println("2. 원의 넓이 계산");
+            System.out.println("3. 저장된 연산 결과 보기");
+            System.out.println("4. 저장된 원의 넓이 결과 보기");
+            System.out.print("선택: ");
+            int choice = sc.nextInt();
 
-            System.out.print("사칙 연산 기호를 입력하세요 (+, -, *, /): ");
-            char operator = sc.next().charAt(0);
-
-            try {
-                // Calculator 클래스를 사용하여 계산 수행
-                double result = calculator.calculate(firstNum, secondNum, operator);
-                System.out.println("결과: " + result);
-            } catch (CalculatorException e) {
-                // 계산 중 발생할 수 있는 CalculatorException 처리
-                System.out.println("오류: " + e.getMessage());
+            switch (choice) {
+                case 1:
+                    performArithmetic(calculator, sc);
+                    break;
+                case 2:
+                    calculateCircleArea(calculator, sc);
+                    break;
+                case 3:
+                    showResults(calculator.inquiryResults());
+                    break;
+                case 4:
+                    showResults(calculator.inquiryCircleAreas());
+                    break;
+                default:
+                    System.out.println("잘못된 선택입니다. 1, 2, 3 또는 4를 입력하세요.");
             }
 
-            // 개행 문자 소비
-            sc.nextLine();
-
-            System.out.println("저장된 결과를 조회하시겠습니까? (삭제하려면 'yes'를 입력하세요)");
-            String inquiryOption = sc.nextLine();
-            if (inquiryOption.equals("yes")) {
-                // 조회된 결과 출력
-                List<Double> results = calculator.inquiryResults();
-                System.out.println("저장된 결과: " + results);
-            }
-
-            System.out.println("첫 번째 저장된 데이터를 삭제하시겠습니까? (삭제하려면 'yes'를 입력하세요)");
-            String deleteOption = sc.nextLine();
-            if (deleteOption.equals("yes")) {
-                // 연산 결과 중 첫 번째 저장된 데이터 삭제
-                calculator.deleteFirstResult();
-                System.out.println("첫 번째 저장된 데이터가 삭제되었습니다.");
-
-                // 연산 결과 중 첫 번째 저장된 데이터 삭제 후의 결과 출력
-                System.out.println("삭제 후 저장된 값: " + calculator.getResults());
-            }
-
-            System.out.println("더 계산하시겠습니까? (종료하려면 'exit'을 입력하세요)");
-            String text = sc.nextLine();
+            System.out.println("계속 하시겠습니까? (종료하려면 'exit' 입력)");
+            String text = sc.next();
             if (text.equals("exit")) {
                 break;
             }
-        }  //루프 종료
-        sc.close(); // 사용이 끝난 스캐너 닫기
+        }
+        sc.close();
+    }
+
+    private static void performArithmetic(Calculator calculator, Scanner sc) {
+        System.out.println("첫 번째 숫자를 입력하세요: ");
+        double firstNum = sc.nextDouble();
+        System.out.println("두 번째 숫자를 입력하세요: ");
+        double secondNum = sc.nextDouble();
+        System.out.print("연산자를 입력하세요 (+, -, *, /): ");
+        char operator = sc.next().charAt(0);
+        try {
+            double result = calculator.calculate(firstNum, secondNum, operator);
+            System.out.println("결과: " + result);
+        } catch (CalculatorException e) {
+            System.out.println("오류: " + e.getMessage());
+        }
+    }
+
+    private static void calculateCircleArea(Calculator calculator, Scanner sc) {
+        System.out.println("원의 반지름을 입력하세요: ");
+        double radius = sc.nextDouble();
+        double area = calculator.calculateCircleArea(radius);
+        System.out.println("원의 넓이: " + area);
+    }
+
+    private static void showResults(List<Double> results) {
+        System.out.println("저장된 결과: " + results);
     }
 }
