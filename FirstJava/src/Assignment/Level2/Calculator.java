@@ -44,6 +44,12 @@ public class Calculator {
         results.add(result);
         return result;
     }
+    // 연산 결과 리스트에서 첫 번째 데이터를 삭제하는 메서드
+    public void deleteFirstResult() {
+        if (!results.isEmpty()) {
+            results.remove(0);
+        }
+    }
 
     // 연산 결과 컬렉션을 간접적으로 가져오는 Getter 메서드
     public List<Double> getResults() {
