@@ -2,10 +2,6 @@ package Assignment.Level2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/* 2. Level 1에서 구현한 App 클래스의 main 메서드에 Calculator 클래스가 활용될 수 있도록 수정합니다.
-    - 연산 수행 역할은 Calculator 클래스가 담당합니다.
-        - 연산 결과는 Calculator 클래스의 연산 결과를 저장하는 필드에 저장됩니다.
-    - 소스 코드 수정 후에도 수정 전의 기능들이 반드시 똑같이 동작해야합니다. */
 public class App {
     public static void main(String[] args) {
         /* Calculator 인스턴스 생성 */
@@ -32,7 +28,7 @@ public class App {
                 System.out.println("오류: " + e.getMessage());
             }
 
-            // 스캐너 버퍼 비우기
+            // 개행 문자 소비
             sc.nextLine();
 
             System.out.println("더 계산하시겠습니까? (종료하려면 'exit'을 입력하세요)");
