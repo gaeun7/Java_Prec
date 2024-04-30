@@ -1,5 +1,6 @@
 package Assignment.Level2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CircleCalculator extends Calculator {
@@ -7,7 +8,7 @@ public class CircleCalculator extends Calculator {
 
     public CircleCalculator(List<Double> initialResults, List<Double> initialCircleAreas) {
         super(initialResults);
-        this.circleAreas = initialCircleAreas;
+        this.circleAreas = new ArrayList<>(initialCircleAreas);
     }
 
     // 원의 넓이를 계산하고 리스트에 추가하는 메소드
