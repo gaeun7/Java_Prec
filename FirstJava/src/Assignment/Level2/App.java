@@ -51,7 +51,7 @@ public class App {
         double firstNum = sc.nextDouble();
         System.out.println("두 번째 숫자를 입력하세요: ");
         double secondNum = sc.nextDouble();
-        System.out.print("연산자를 입력하세요 (+, -, *, /): ");
+        System.out.print("연산자를 입력하세요 (+, -, *, /,%): ");
         char operator = sc.next().charAt(0);
         try {
             double result = calculator.calculate(firstNum, secondNum, operator);
