@@ -1,6 +1,8 @@
 package Assignment.Level2Prec;
-/*1. 양의 정수 2개(0 포함)와 연산 기호를 매개변수로 받아 사칙연산(+,-,*,/) 기능을 수행한 후 결과 값을 반환하는 메서드와 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성합니다.
-    - 나눗셈에서 분모에 0이 들어오거나 연산자 기호가 잘 못 들어온 경우 적합한 Exception 클래스를 생성하여 throw 합니다. (매개변수로 해당 오류 내용을 전달합니다.)*/
+/*3. App 클래스의 main 메서드에서 Calculator 클래스의 연산 결과를 저장하고 있는 컬렉션 필드에 직접 접근하지 못하도록 수정합니다. (캡슐화)
+    - 간접 접근을 통해 필드에 접근하여 가져올 수 있도록 구현합니다. (Getter 메서드)
+    - 간접 접근을 통해 필드에 접근하여 수정할 수 있도록 구현합니다. (Setter 메서드)
+    - 위 요구사항을 모두 구현 했다면 App 클래스의 main 메서드에서 위에서 구현한 메서드를 활용 해봅니다.*/
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ class CalculatorException extends Exception {       // 나눗셈에서 분몬에
 
 public class Calculator {
     // 연산 결과를 저장하는 컬렉션 타입 필드
-    List<Double>results =  new ArrayList<>();
+   private List<Double>results =  new ArrayList<>();
 
     // 산술 연산을 수행하고 결과 값을 반환하는 메서드
    public double calculator(double firstNum, double secondNum, char operator) throws CalculatorException {
@@ -34,4 +36,12 @@ public class Calculator {
        results.add(result);
        return result;
    }
+       /* Getter 메서드 구현 */
+       public List<Double> getResults() {
+           return  new ArrayList<>(results);
+       }
+       /* Setter 메서드 구현 */
+       public void setResult(List<Double> newResults){
+           results = new ArrayList<>(newResults);
+       }
 }
