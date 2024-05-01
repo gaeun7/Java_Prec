@@ -1,9 +1,7 @@
 package Assignment.Level2Prec;
-/*5. Calculator 클래스에 저장된 연산 결과들을 조회하는 기능을 가진 메서드를 구현한 후 App 클래스의 main 메서드에 조회 메서드가 활용될 수 있도록 수정합니다.*/
+/*6. Calculator 인스턴스를 생성(new)할 때 생성자를 통해 연산 결과를 저장하고 있는 컬렉션 필드가 초기화 되도록 수정합니다.*/
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.awt.SystemColor.text;
 
 class CalculatorException extends Exception {       // 나눗셈에서 분모에 0이 들어오거나 연산자 기호가 잘 못 들어온 경우에 대한 예외 클래스
     public CalculatorException(String message) {
@@ -12,8 +10,10 @@ class CalculatorException extends Exception {       // 나눗셈에서 분모에
 }
 
 public class Calculator {
-    // 연산 결과를 저장하는 컬렉션 타입 필드
-   private List<Double>results =  new ArrayList<>();
+   private List<Double> results;
+    public Calculator(List<Double> initialResults) {
+        this.results = new ArrayList<>(initialResults);
+    }
 
     // 산술 연산을 수행하고 결과 값을 반환하는 메서드
    public double calculator(double firstNum, double secondNum, char operator) throws CalculatorException {

@@ -1,12 +1,23 @@
 package Assignment.Level2Prec;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        // Calculator 인스턴스 생성
-        Calculator calculator = new Calculator();
+        // 초기 결과 값으로 사용할 리스트 생성
+        List<Double> initialResults = Arrays.asList(0.0, 0.0);
+        Calculator calculator = new Calculator(initialResults);
+        // Calculator 인스턴스에서 계산 결과 검색
+        List<Double> calculationResults = calculator.getResults();
+        // 초기화 확인
+        if (initialResults.equals(calculationResults)) {
+            System.out.println("Calculator 인스턴스가 초기 결과로 성공적으로 생성되었습니다.");
+        } else {
+            System.out.println("오류: Calculator 인스턴스가 초기 결과로 올바르게 초기화되지 않았습니다.");
+        }
 
         Scanner sc = new Scanner(System.in);
 
@@ -39,7 +50,7 @@ public class App {
             String delete = sc.nextLine();
             if (delete.equals("네")) {
                 // 연산 결과 중 첫 번째 저장된 데이터 삭제
-                calculator.deleteFirstResult();;
+                calculator.deleteFirstResult();
                 System.out.println("삭제 후 저장된 값: " + calculator.getResults());
             }
 
