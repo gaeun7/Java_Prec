@@ -13,6 +13,7 @@ class CalculatorException extends Exception {       // 나눗셈에서 분몬에
 public class Calculator {
     // 연산 결과를 저장하는 컬렉션 타입 필드
     List<Double>results =  new ArrayList<>();
+
     // 산술 연산을 수행하고 결과 값을 반환하는 메서드
    public double calculator(double fristNum, double secondNum, char operator) throws CalculatorException {
         double result;
