@@ -15,18 +15,18 @@ public class Calculator {
     List<Double>results =  new ArrayList<>();
 
     // 산술 연산을 수행하고 결과 값을 반환하는 메서드
-   public double calculator(double fristNum, double secondNum, char operator) throws CalculatorException {
+   public double calculator(double firstNum, double secondNum, char operator) throws CalculatorException {
         double result;
        // 연산자 기호에 따라 산술 연산 수행 (향상된 switch)
        switch (operator) {
-           case ('+') -> result = fristNum + secondNum;
-           case ('-') -> result = fristNum - secondNum;
-           case ('*') -> result = fristNum * secondNum;
+           case ('+') -> result = firstNum + secondNum;
+           case ('-') -> result = firstNum - secondNum;
+           case ('*') -> result = firstNum * secondNum;
            case ('/') -> {
                if (secondNum == 0) {
                    throw new CalculatorException("0으로 나눌 수 없음");
                }
-               result = fristNum / secondNum;
+               result = firstNum / secondNum;
            }
            default -> throw new CalculatorException("잘못된 연산자 입니다.");
        }
