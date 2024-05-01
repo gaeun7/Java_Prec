@@ -1,47 +1,71 @@
 package Assignment;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        ArrayList<Integer> intArray = new ArrayList<Integer>();
+
         Scanner sc = new Scanner(System.in);
 
-        while (true){
-        System.out.println("첫 번째 숫자를 입력하세요: ");
-        int firstnum = sc.nextInt(); //첫 번째 숫자
-        System.out.println("두 번째 숫자를 입력하세요:  ");
-        int secondnum = sc.nextInt(); // 두 번째 숫자
+        while (true) {
+            System.out.println("첫 번째 숫자를 입력하세요: ");
+            int firstNum = sc.nextInt();
+            System.out.println("두 번째 숫자를 입력하세요:  ");
+            int secondNum = sc.nextInt();
 
-        sc.nextLine(); // 개행 문자 소비
+            sc.nextLine(); // 개행 문자 소비
 
-        int result = 0; // 초기화
+            int result = 0;
 
-        System.out.println("사칙연산 기호를 입력하세요: ");
-        char operator = sc.nextLine().charAt(0);
+            System.out.println("사칙연산 기호를 입력하세요: ");
+            char operator = sc.nextLine().charAt(0);
 
-        switch (operator) {
-            case '+': // 덧셈 연산
-                result = firstnum + secondnum;
-                System.out.println("결과: " + result);
-                break;
-            case '-': // 뺄셈 연산
-                result = firstnum - secondnum;
-                System.out.println("결과: " + result);
-                break;
-            case '*': // 곱셈 연산
-                result = firstnum * secondnum;
-                System.out.println("결과: " + result);
-                break;
-            case '/': // 나눗셈 연산
-                if (secondnum > 0) {
-                    result = firstnum / secondnum;
+            switch (operator) {
+                case '+':
+                    result = firstNum + secondNum;
                     System.out.println("결과: " + result);
                     break;
-                } else {
-                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0을 입력할 수 없습니다.");
-                }
-            default:
+                case '-':
+                    result = firstNum - secondNum;
+                    System.out.println("결과: " + result);
+                    break;
+                case '*':
+                    result = firstNum * secondNum;
+                    System.out.println("결과: " + result);
+                    break;
+                case '/':
+                    if (secondNum > 0) {
+                        result = firstNum / secondNum;
+                        System.out.println("결과: " + result);
+                    } else {
+                        System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0을 입력할 수 없습니다.");
+                    }
+                    break;
+                default:
+                    System.out.println("잘못된 연산자입니다.");
             }
-            System.out.println("더 게산하시겠습니까? (exit 입력 시 종료)");
+            /*ArrayList에 연산 결과 저장할 수 있도록 구현*/
+            intArray.add(result);
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            /*“remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현*/
+            String answer = sc.nextLine();
+            if (answer.equals("remove")) {
+                intArray.remove(0);
+            }
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String reply = sc.nextLine();
+
+            if (reply.equals("inquiry")) {
+                for (int num : intArray) {
+                    System.out.println(num);
+                }
+            }
+
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String text = sc.nextLine();
             if (text.equals("exit"))
                 break;
