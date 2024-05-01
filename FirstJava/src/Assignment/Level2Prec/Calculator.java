@@ -1,12 +1,11 @@
 package Assignment.Level2Prec;
-/*3. App 클래스의 main 메서드에서 Calculator 클래스의 연산 결과를 저장하고 있는 컬렉션 필드에 직접 접근하지 못하도록 수정합니다. (캡슐화)
-    - 간접 접근을 통해 필드에 접근하여 가져올 수 있도록 구현합니다. (Getter 메서드)
-    - 간접 접근을 통해 필드에 접근하여 수정할 수 있도록 구현합니다. (Setter 메서드)
-    - 위 요구사항을 모두 구현 했다면 App 클래스의 main 메서드에서 위에서 구현한 메서드를 활용 해봅니다.*/
+/*4. Calculator 클래스에 저장된 연산 결과들 중  가장 먼저 저장된 데이터를 삭제하는 기능을 가진 메서드를 구현한 후 App 클래스의 main 메서드에 삭제 메서드가 활용될 수 있도록 수정합니다.*/
 import java.util.ArrayList;
 import java.util.List;
 
-class CalculatorException extends Exception {       // 나눗셈에서 분몬에 0이 들어오거나 연산자 기호가 잘 못 들어온 경우에 대한 예외 클래스
+import static java.awt.SystemColor.text;
+
+class CalculatorException extends Exception {       // 나눗셈에서 분모에 0이 들어오거나 연산자 기호가 잘 못 들어온 경우에 대한 예외 클래스
     public CalculatorException(String message) {
         super(message);
     }
@@ -35,6 +34,11 @@ public class Calculator {
        // 연산 결과를 컬렉션 필드에 저장
        results.add(result);
        return result;
+   }
+   public void deleteFirstResult() {        // 연산 결과 리스트에서 첫 번째 데이터를 삭제하는 메서드
+       if(!results.isEmpty()) {
+           results.removeFirst();
+       }
    }
        /* Getter 메서드 구현 */
        public List<Double> getResults() {
