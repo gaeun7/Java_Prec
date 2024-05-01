@@ -1,11 +1,10 @@
 package Assignment;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        ArrayList<Integer> intArray = new ArrayList<Integer>();
+        ArrayList<Integer> intArray = new ArrayList<>();
 
         Scanner sc = new Scanner(System.in);
 
